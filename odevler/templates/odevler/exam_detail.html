@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ exam.baslik }}</title>
+</head>
+<body>
+    <h1>{{ exam.baslik }}</h1>
+    <p>{{ exam.aciklama }}</p>
+    <p>Son Tarih: {{ exam.son_tarih }}</p>
+
+    <h2>Ödevi Teslim Et</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Teslim Et</button>
+    </form>
+
+    <a href="{% url 'home' %}">Geri Dön</a>
+</body>
+</html>

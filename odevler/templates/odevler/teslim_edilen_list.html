@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Teslim Listesi</title>
+</head>
+<body>
+    <h1>Teslim Edilen Ödevler</h1>
+    <table border="1">
+        <tr>
+            <th>Öğrenci</th>
+            <th>Sınav</th>
+            <th>Teslim Tarihi</th>
+            <th>Puan</th>
+        </tr>
+        {% for teslim in teslimler %}
+        <tr>
+            <td>{{ teslim.ogrenci }}</td>
+            <td>{{ teslim.sinav }}</td>
+            <td>{{ teslim.teslim_tarihi }}</td>
+            <td>{{ teslim.puan|default:"Henüz girilmedi" }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{% url 'home' %}">Geri Dön</a>
+</body>
+</html>

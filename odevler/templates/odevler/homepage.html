@@ -1,0 +1,20 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ödev Sistemi</title>
+</head>
+<body>
+    <h1>Ödevler</h1>
+    {% for exam in exam %}
+        <div>
+            <h2>{{ exam.baslik }}</h2>
+            <p>Son Tarih: {{ exam.son_tarih }}</p>
+            <p>Ders: {{ exam.ders }}</p>
+            <a href="{% url 'exam_detail' exam.id %}">Detay</a>
+        </div>
+        <hr>
+    {% endfor %}
+</body>
+</html>
+
