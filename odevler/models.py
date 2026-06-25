@@ -34,7 +34,13 @@ class deadline(models.Model):
     teslim_tarihi=models.DateTimeField(auto_now_add=True)
     dosya=models.FileField(upload_to='teslimler/')
     puan=models.IntegerField(null=True,blank=True) #blank alan doldurmak zorunlu değil
-   
+    
+
+    class Meta:
+        indexes = [
+            models.Index(fields=['ogrenci'], name='ogrenci_index'),
+            models.Index(fields=['sinav'], name='sinav_index'),
+        ]
     
     def __str__(self):
       return f"{self.ogrenci} - {self.sinav}"

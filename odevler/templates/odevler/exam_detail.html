@@ -5,8 +5,14 @@
 </head>
 <body>
     <h1>{{ exam.baslik }}</h1>
+
+    {% if exam.son_tarih < today %}
+        <p style="color:red;"> Bu ödevin teslim tarihi geçmiştir!</p>
+    {% else %}
+        <p style="color:green;">Teslim tarihi: {{ exam.son_tarih }}</p>
+    {% endif %}
+
     <p>{{ exam.aciklama }}</p>
-    <p>Son Tarih: {{ exam.son_tarih }}</p>
 
     <h2>Ödevi Teslim Et</h2>
     <form method="post" enctype="multipart/form-data">

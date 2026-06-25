@@ -5,6 +5,17 @@
 </head>
 <body>
     <h1>Teslim Edilen Ödevler</h1>
+
+    <form method="get">
+        <select name="ogrenci">
+            <option value="">Tüm Öğrenciler</option>
+            {% for ogrenci in ogrenciler %}
+                <option value="{{ ogrenci.id }}">{{ ogrenci }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Filtrele</button>
+    </form>
+
     <table border="1">
         <tr>
             <th>Öğrenci</th>
@@ -21,6 +32,7 @@
         </tr>
         {% endfor %}
     </table>
+
     <a href="{% url 'home' %}">Geri Dön</a>
 </body>
 </html>
